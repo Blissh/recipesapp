@@ -8,6 +8,7 @@ const session = require('express-session');
 // Initializations
 const app = express();
 const port = 3000;
+require('./database');
 
 // Settings
 app.set('port', process.env.PORT || 3000);
