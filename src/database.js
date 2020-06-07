@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/recipes', {
+const uri = 'mongodb+srv://admin:recipesadmin@testcluster-omtth.mongodb.net/recipes';
+
+mongoose.connect(uri, {
     useCreateIndex: true,
     useFindAndModify: false,
     useNewUrlParser: true,
@@ -8,3 +10,7 @@ mongoose.connect('mongodb://localhost/recipes', {
 })
     .then(db => console.log("DB is connected."))
     .catch((err) => console.log("Error conectando / ", err));
+
+
+
+// admin : recipesadmin
