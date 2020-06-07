@@ -1,0 +1,8 @@
+.jumbotron {
+    background-image: url("../img/bgjumbo.jpg");
+    background-size: cover;
+
+  }
+.jumbotron #jumbotron {
+    background-color: rgba(245, 245, 245, 0.4);
+}

@@ -1,7 +1,9 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const app = require('./server.js');
-require('./database');
+const app = require("./server.js");
+require("./database");
 
 //Server listening
-app.listen(app.get('port'), () => console.log(`App server listening on port`, app.get('port')));
+app.listen(app.get("port"), () =>
+  console.log(`App server listening on port`, app.get("port"))
+);
