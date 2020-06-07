@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
-const uri = 'mongodb+srv://admin:recipesadmin@testcluster-omtth.mongodb.net/recipes';
+const { MONGO_USER, MONGO_PASSWORD, MONGO_DATABASE } = process.env;
+const uri =  `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@testcluster-omtth.mongodb.net/${MONGO_DATABASE}`;
 
-mongoose.connect(uri, {
+mongoose
+    .connect(uri, {
     useCreateIndex: true,
     useFindAndModify: false,
     useNewUrlParser: true,
@@ -11,6 +13,3 @@ mongoose.connect(uri, {
     .then(db => console.log("DB is connected."))
     .catch((err) => console.log("Error conectando / ", err));
 
-
-
-// admin : recipesadmin
