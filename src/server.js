@@ -40,7 +40,7 @@ app.use(
 // Routes
 app.use(require("./routes/index.routes"));
 app.use(require("./routes/myrecipes.routes"));
-app.use(require("./routes/recipes.routes"));
+app.use(require("./routes/recipesadm.routes"));
 app.use(require("./routes/users.routes"));
 
 // Static files

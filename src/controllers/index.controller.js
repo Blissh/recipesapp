@@ -5,7 +5,7 @@ indexctrl.renderIndex = (req, res)=>{
 };
 
 indexctrl.renderRecipes = (req, res) =>{
-    res.render('recipes');
+    res.render('recipes/recipes');
 };
 
 indexctrl.renderFavorites = (req, res) =>{
