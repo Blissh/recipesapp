@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/myrecipes', (req, res) => {
+// Trae las recetas favoritas del user
+router.get('/myrecipes/:id', (req, res) => {
   res.send('GET request to my recipes')
 });
 

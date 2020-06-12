@@ -1,12 +1,23 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const { renderIndex, renderFavorites, renderRecipes} = require('../controllers/index.controller');
+const {
+  renderIndex,
+  renderFavorites,
+  renderRecipes,
+} = require("../controllers/index.controller");
 
-router.get('/', renderIndex);
+const {
+  renderSignup,
+  renderSignin,
+} = require("../controllers/users.controller");
 
-router.get('/recipes', renderRecipes);
+router.get("/", renderIndex);
 
-router.get('/favorites', renderFavorites);
+router.get("/recipes", renderRecipes);
 
+router.get("/favorites", renderFavorites);
+
+router.get("/signup", renderSignup);
+router.get("/signin", renderSignin);
 module.exports = router;

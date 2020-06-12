@@ -5,7 +5,7 @@ const recipectrl = {};
 
 // Metodo para añadir nuevas recetas form : admin
 recipectrl.addRecipe = (req, res)=>{
-    res.send('Aqui pronto, el admin añadirá recetas mediante un form que luego envía')
+    res.render('recipes/newrecipe');
 };
 
 // Metodo para crear la receta en la BD

@@ -13,7 +13,7 @@ const {
 // Nueva receta - form & inserción
 
 router.get('/recipes/add', addRecipe);
-router.post('/recipes/add', createRecipe);
+router.post('/recipes/create', createRecipe);
 
 // Obtener todas las recetas
 router.get('/recipes', renderRecipes);
