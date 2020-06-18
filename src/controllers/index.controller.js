@@ -13,7 +13,7 @@ indexctrl.renderOneRecipe = (req, res) => {
 };
 
 indexctrl.renderFavorites = (req, res) => { 
-    res.render('favorites');
+    res.render('recipes/favorites');
 };
 
 

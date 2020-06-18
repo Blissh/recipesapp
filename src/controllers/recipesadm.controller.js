@@ -3,9 +3,9 @@ const router = Router();
 
 const recipectrl = {};
 
-// Metodo para añadir nuevas recetas form : admin
+// FORM de nueva receta
 recipectrl.addRecipe = (req, res)=>{
-    res.render('recipes/newrecipe');
+    res.render('admin/create');
 };
 
 // Metodo para crear la receta en la BD
@@ -16,7 +16,7 @@ recipectrl.createRecipe = (req, res)=>{
 
 // Get recipes
 recipectrl.renderRecipes = (req, res)=>{
-    res.send('Obteniendo todas las recetas uwu');
+    res.render('admin/everything');
 };
 //get form para editar
 recipectrl.renderEditForm = (req, res)=>{

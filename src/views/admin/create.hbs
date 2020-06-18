@@ -1,0 +1,49 @@
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-7 mx-auto">
+                <div class="card my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Create new recipe</h5>
+                        <form class="form-signin">
+                            <div class="form-label-group p-2">
+                                <input type="text" id="inputName" class="form-control" placeholder="recipe name" required autofocus>
+                            </div>
+
+                            <div class="form-label-group p-2">
+                                <input type="text" id="inputType" class="form-control" placeholder="recipe type" required>
+                            </div>
+
+                            <div class="form-label-group p-2">
+                                <input type="text" id="inputDif" class="form-control" placeholder="recipe difficulty" required>
+                            </div>
+
+                            <div class="form-label-group p-2">
+                                <textarea id="inputIngredients" class="form-control" cols="30" rows="3"                           placeholder="ingredients, separated, by, coma" required></textarea>
+
+                            </div>
+
+                            <div class="form-label-group p-2">
+                                <textarea id="inputSteps" class="form-control" cols="30" rows="3"                              placeholder="steps, separated, by, coma" required></textarea>
+                            </div>
+
+                            <div class="form-label-group p-2">
+                                <input type="text" id="inputTime" class="form-control" placeholder="recipe aprox time" required>
+                            </div>
+
+                            <div class="form-label-group p-2">
+                                <textarea id="inputPreview" class="form-control" cols="30" rows="3"               placeholder="recipe preview" maxlength="40" required></textarea>
+                            </div>
+
+                            <div class="form-label-group p-2">
+                                <input type="url" class="form-control" id="inputImg" placeholder="recipe image url" required>
+                            </div>
+
+                            <button class="btn btn-primary btn-block text-uppercase" type="submit">Send new recipe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

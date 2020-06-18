@@ -16,7 +16,7 @@ router.get('/recipes/add', addRecipe);
 router.post('/recipes/create', createRecipe);
 
 // Obtener todas las recetas
-router.get('/recipes', renderRecipes);
+router.get('/recipes/all', renderRecipes);
 
 // Editar receta
 router.get('/recipes/update/:id', renderEditForm);

@@ -5,12 +5,12 @@ const userctrl = {};
 // rendering
 
 userctrl.renderSignup = (req, res) => {
-    res.render("users/register");
-  };
-  
-  userctrl.renderSignin = (req, res) => {
-    res.render("users/login");
-  };
+  res.render("users/register");
+};
+
+userctrl.renderSignin = (req, res) => {
+  res.render("users/login");
+};
 
 userctrl.validateUser = () => {
   // passport implementation
@@ -19,7 +19,7 @@ userctrl.validateUser = () => {
 userctrl.newUser = async (req, res) => {
   let errors = [];
   const { name, email, password, confirm_password } = req.body;
-  const rol = 'user';
+  const rol = "user";
   console.log(name, email, password, confirm_password);
   if (password != confirm_password) {
     errors.push({ text: "Passwords don't match." });
@@ -41,8 +41,8 @@ userctrl.newUser = async (req, res) => {
     // email validation
     const emailUser = await User.findOne({ email: email });
     if (emailUser) {
-    //   req.flash("error_msg", "Email already in use.");
-    console.log('email in use');
+      //   req.flash("error_msg", "Email already in use.");
+      console.log("email in use");
       res.redirect("/signup");
     } else {
       // Save the user
@@ -50,12 +50,11 @@ userctrl.newUser = async (req, res) => {
       console.log(newUser);
       newUser.password = await newUser.encryptPass(password);
       await newUser.save();
-      console.log('registered sucesfuly');
-    //   req.flash("success_msg", "You are registered.");
+      console.log("registered sucesfuly");
+      //   req.flash("success_msg", "You are registered.");
       res.redirect("/singin");
     }
   }
 };
-
 
 module.exports = userctrl;
