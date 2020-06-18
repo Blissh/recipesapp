@@ -5,6 +5,7 @@ const {
   renderIndex,
   renderFavorites,
   renderRecipes,
+  renderOneRecipe,
 } = require("../controllers/index.controller");
 
 const {
@@ -15,7 +16,7 @@ const {
 router.get("/", renderIndex);
 
 router.get("/recipes", renderRecipes);
-
+router.get("/recipe", renderOneRecipe)
 router.get("/favorites", renderFavorites);
 
 router.get("/signup", renderSignup);

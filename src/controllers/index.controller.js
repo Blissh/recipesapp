@@ -9,7 +9,7 @@ indexctrl.renderRecipes = (req, res) => {
 };
 
 indexctrl.renderOneRecipe = (req, res) => {
-    res.render('recipes/onerecipe')
+    res.render('recipes/recipe')
 };
 
 indexctrl.renderFavorites = (req, res) => { 
