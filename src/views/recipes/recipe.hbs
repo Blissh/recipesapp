@@ -1,56 +1,40 @@
 <div class="container">
     <header>
         <div class="jumbotron my-4 p-3">
-            <h3>Recipe name</h3>
+            <h3>{{onerecipe.receta_nombre}}</h3>
         </div>
     </header>
     <div class="container p-4 rounded bg-white">
         <div class="row">
             <div class="col-md-4">
-                <img class="img-fluid rounded" src="http://placehold.it/400x300" alt="">
+                <img class="img-fluid rounded" src="{{onerecipe.receta_images.[0]}}" alt="">
             </div>
             <div class="col-md-8 pt-1">
                 <div class="row">
-                    <h4 class="col-11">Recipe name</h4>
+                    <h4 class="col-11">{{onerecipe.receta_nombre}}</h4>
                     <a href="" class="col-1"><i class="fa fa-bookmark " aria-hidden="true"></i></a>
                 </div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta laboriosam atque sapiente illum vel
                     nam, suscipit molestiae quaerat porro animi sunt similique quia repellendus aliquid. Soluta esse
                     maiores delectus dolorum?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni voluptate facilis atque adipisci
-                    itaque mollitia temporibus eos fuga aspernatur perspiciatis sint necessitatibus optio, deserunt
-                    doloribus soluta voluptatum magnam impedit cupiditate! Atque laborum dolore nisi repellendus
-                    aperiam, laboriosam reprehenderit odio hic vero, consequuntur sint perferendis explicabo expedita
-                    exercitationem possimus pariatur natus.</p>
+                <ul>
+                    {{#each onerecipe.receta_ingredientes}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
             </div>
         </div>
         <div>
             <ul class="list-group rounded form-group" >
                 <h4>¡Check your advance!</h4>
+                {{#each onerecipe.receta_pasos}}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" name="" id="as" class="custom-control-input">
-                        <label for="as" class="custom-control-label">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, accusantium!</label>
+                        <input type="checkbox" name="" id="{{@index}}" class="custom-control-input">
+                        <label for="{{@index}}" class="custom-control-label">{{this}}</label>
                     </div>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" name="" id="as1" class="custom-control-input">
-                        <label for="as1" class="custom-control-label">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, accusantium!</label>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" name="" id="as2" class="custom-control-input">
-                        <label for="as2" class="custom-control-label">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, accusantium!</label>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" name="" id="as3" class="custom-control-input">
-                        <label for="as3" class="custom-control-label">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, accusantium!</label>
-                    </div>
-                </li>
+                {{/each}}
             </ul>
         </div>
     </div>

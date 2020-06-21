@@ -1,0 +1,42 @@
+<div class="col-md-6 mx-auto mt-2">
+    <div class="card">
+        <div class="card-header">
+            Edit recipe
+        </div>
+        <div class="card-body">
+            <form action="/recipes/update/{{params._id}}?_method=PUT" method="POST">
+                <input type="hidden" name="_method" value="PUT">
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" value="{{params.receta_nombre}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="tipo" class="form-control" value="{{params.receta_tipo}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="dificultad" class="form-control" value="{{params.receta_dificultad}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="tiempo" class="form-control" value="{{params.receta_tiempo}}">
+                </div>
+                <div class="form-group">
+                    <textarea name="preview" class="form-control">{{params.receta_preview}}</textarea>
+                </div>
+                <div class="form-group">
+                    <textarea name="ingredientes" class="form-control">{{params.receta_ingredientes}}</textarea>
+                </div>
+                <div class="form-group">
+                    <textarea name="pasos" class="form-control">{{params.receta_pasos}}</textarea>
+                </div>
+                <div class="form-group">
+                    <textarea name="images" class="form-control">{{params.receta_images}}</textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Update recipe</button>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+
+        </div>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 const { Schema, model} = require('mongoose');
 
 // Declare the Schema of the Mongo model
-var userSchema = new mongoose.Schema({
+var userSchema = new Schema({
     receta_nombre:{
         type:String,
         required:true,
@@ -15,12 +15,14 @@ var userSchema = new mongoose.Schema({
         required:true,
     },
     receta_ingredientes:{
-        type:Array,
+        type:[],
         required:true,
+        default:undefined
     },
     receta_pasos:{
-        type:Array,
+        type:[],
         required:true,
+        default:undefined
     },
     receta_tiempo:{
         type:String,
@@ -31,8 +33,9 @@ var userSchema = new mongoose.Schema({
         required:true,
     },
     receta_images:{
-        type:Array,
+        type:[],
         required:true,
+        default:undefined
     },
 
 },
@@ -42,4 +45,4 @@ var userSchema = new mongoose.Schema({
 );
 
 //Export the model
-module.exports = model('Recipe', userSchema);
+module.exports = model('Recipe', userSchema, 'recipes');

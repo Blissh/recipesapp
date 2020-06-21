@@ -1,0 +1,12 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script>
+    Swal.fire({
+        title:'There was an error',
+        titleText:'There was an error',
+        text:'Please check the log, an error has ocurred',
+        icon:'error',
+        onClose: () => {
+            location.href='/recipes/add';
+        }
+    });
+</script>

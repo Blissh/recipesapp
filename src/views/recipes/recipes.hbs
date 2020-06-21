@@ -6,134 +6,20 @@
     </header>
 
     <div class="row text-center">
-
+        {{#each recipes}}
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card h-100">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                <img class="card-img-top" src="{{receta_images.[0]}}" alt="">
                 <div class="card-body">
-                    <h4 class="card-title">Recipe name</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
-                        necessitatibus
-                        neque.</p>
+                    <h4 class="card-title">{{receta_nombre}}</h4>
+                    <p class="card-text">{{receta_preview}}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn btn-primary col-7 float-right">See more!</a>
-                    <span class="badge badge-warning float-left">30 min</span>
+                    <a href="/" class="btn btn-primary col-7 float-right">See more!</a>
+                    <span class="badge badge-warning float-left">{{receta_tiempo}} min</span>
                 </div>
             </div>
         </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni
-                        sapiente,
-                        tempore debitis beatae culpa natus architecto.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary col-7 float-right">See more!</a>
-                    <span class="badge badge-warning float-left">18 min</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Recipe name</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
-                        necessitatibus
-                        neque.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary col-7 float-right">See more!</a>
-                    <span class="badge badge-warning float-left">76 min</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Recipe name</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni
-                        sapiente,
-                        tempore debitis beatae culpa natus architecto.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary col-7 float-right">See more!</a>
-                    <span class="badge badge-warning float-left">10 min</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Recipe name</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
-                        necessitatibus
-                        neque.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary col-7 float-right">See more!</a>
-                    <span class="badge badge-warning float-left">30 min</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni
-                        sapiente,
-                        tempore debitis beatae culpa natus architecto.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary col-7 float-right">See more!</a>
-                    <span class="badge badge-warning float-left">18 min</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Recipe name</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
-                        necessitatibus
-                        neque.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary col-7 float-right">See more!</a>
-                    <span class="badge badge-warning float-left">76 min</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Recipe name</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni
-                        sapiente,
-                        tempore debitis beatae culpa natus architecto.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary col-7 float-right">See more!</a>
-                    <span class="badge badge-warning float-left">10 min</span>
-                </div>
-            </div>
-        </div>
-
+        {{/each}}
     </div>
 </div>

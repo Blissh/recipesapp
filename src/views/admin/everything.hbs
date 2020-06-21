@@ -1,98 +1,46 @@
+<!-- Page Content -->
+<div class="container mt-4">
+    <div class="row">
+        {{#each recipes}}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="card-title ">
+                        {{ receta_nombre }}
+                        <a href="/notes/edit/{{_id}}" class="float-right"><i class="fas fa-edit"></i></a>
+                    </h4>
 
-<!-- 
-    TODO:
-    - Cada botón edit, coge su parent element, y hace que los td's se vuelvan inputs areas, estos inputs se modifican, se confirma ( con button nuevo ), y se llama a controlador que edita
-    - Cada botón remove, coge su parent element, y ID (de alguna manera) y llama al controlador para eliminar
+                    <p><b>Type:</b></p>
+                    <p>{{receta_tipo}}</p>
+
+                    <p><b>Difficulty:</b></p>
+                    <p>{{receta_dificultad}}</p>
+
+                    <p><b>Time required:</b></p>
+                    <p>{{receta_tiempo}}</p>
+
+                    <p><b>Preview:</b></p>
+                    <p>{{receta_preview}}</p>
+
+                    <ul>
+                        <p><b>Ingredients:</b></p> {{#each receta_ingredientes}} <li>{{this}}</li> {{/each}}
+                    </ul>
+
+                    <ul>
+                        <p><b>Steps:</b></p> {{#each receta_pasos}} <li>{{this}}</li> {{/each}}
+                    </ul>
+
+                    <p><b>URL: </b></p>
+                    <p>{{receta_images.[0]}}</p>
 
 
- -->
-<div class="container bg-white p-3">
-    {{!-- tabla con registros de las recetas --}}
-    <div class="card mb-4">
-        <div class="card-header"><i class="fas fa-table mr-1"></i>Recipes data</div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Created at</th>
-                            <th>Modified at</th>
-                            <th>Edit</th>
-                            <th>Remove</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Created at</th>
-                            <th>Modified at</th>
-                            <th>Edit</th>
-                            <th>Remove</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                        <tr>
-                            <td>123456</td>
-                            <td>Recipe name</td>
-                            <td>15-06-2020/08:20</td>
-                            <td>16-06-2020/15:30</td>
-                            <td><button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</button></td>
-                            <td><button class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i>Remove</button></td>
-                        </tr>
-                        <tr>
-                            <td>123456</td>
-                            <td>Recipe name</td>
-                            <td>15-06-2020/08:20</td>
-                            <td>16-06-2020/15:30</td>
-                            <td><button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</button></td>
-                            <td><button class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i>Remove</button></td>
-                        </tr>
-                        <tr>
-                            <td>123456</td>
-                            <td>Recipe name</td>
-                            <td>15-06-2020/08:20</td>
-                            <td>16-06-2020/15:30</td>
-                            <td><button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</button></td>
-                            <td><button class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i>Remove</button></td>
-                        </tr>
-                        <tr>
-                            <td>123456</td>
-                            <td>Recipe name</td>
-                            <td>15-06-2020/08:20</td>
-                            <td>16-06-2020/15:30</td>
-                            <td><button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</button></td>
-                            <td><button class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i>Remove</button></td>
-                        </tr>
-                        <tr>
-                            <td>123456</td>
-                            <td>Recipe name</td>
-                            <td>15-06-2020/08:20</td>
-                            <td>16-06-2020/15:30</td>
-                            <td><button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</button></td>
-                            <td><button class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i>Remove</button></td>
-                        </tr>
-                        <tr>
-                            <td>123456</td>
-                            <td>Recipe name</td>
-                            <td>15-06-2020/08:20</td>
-                            <td>16-06-2020/15:30</td>
-                            <td><button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</button></td>
-                            <td><button class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i>Remove</button></td>
-                        </tr>
-                        <tr>
-                            <td>123456</td>
-                            <td>Recipe name</td>
-                            <td>15-06-2020/08:20</td>
-                            <td>16-06-2020/15:30</td>
-                            <td><button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</button></td>
-                            <td><button class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i>Remove</button></td>
-                        </tr>
-                    </tbody>
-                </table>
+                    {{!-- <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST"> <input type="hidden" name="_method" value="DELETE"> <button type="submit" class="btn btn-danger btn-block btn-sm">Delete</button> </form> --}}
+
+                </div>
             </div>
         </div>
+        {{/each}}
     </div>
+    <!-- /.row -->
+
 </div>
