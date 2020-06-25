@@ -11,6 +11,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Home</a>
                 </li>
+                {{#if user}}
                 <li class="nav-item">
                     <a class="nav-link" href="/recipes">Recipes</a>
                 </li>
@@ -18,8 +19,13 @@
                     <a class="nav-link" href="/favorites">My favorites</a>
                 </li>
                 <li class="nav-item active pl-2">
+                    <a class="nav-link" href="/users/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                </li>
+                {{else}}
+                <li class="nav-item active pl-2">
                     <a class="nav-link" href="/signin"><i class="fa fa-sign-in" aria-hidden="true"></i> Signin</a>
                 </li>
+                {{/if}}
             </ul>
         </div>
     </div>

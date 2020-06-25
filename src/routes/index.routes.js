@@ -16,7 +16,7 @@ const {
 router.get("/", renderIndex);
 
 router.get("/recipes", renderRecipes);
-router.get("/recipes/:id", renderOneRecipe)
+router.get("/recipes/justone/:id", renderOneRecipe)
 router.get("/favorites", renderFavorites);
 
 router.get("/signup", renderSignup);

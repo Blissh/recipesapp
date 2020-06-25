@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
 const Recipe = require("../models/Recipes");
-
+// const { body, validationResult} = require('express-validator');
 const recipectrl = {};
 
 //  *FORM de nueva receta
@@ -15,6 +15,34 @@ recipectrl.createRecipe = async (req, res) => {
   let ingredientsArr = ingredients.split(",");
   let stepsArr = steps.split(",");
   let imagesArr = url.split(",");
+  const errors = [];
+
+  // Validation for inputs (pretty bad and non clear validation, but, ik)
+  if (!name) {
+    errors.push({ text: "Please dont leave NAME in blank." });
+  }
+  if (!type < 3) {
+    errors.push({ text: "Please dont leave TYPE in blank. > 2" });
+  }
+  if (!dif < 3) {
+    errors.push({ text: "Please dont leave DIFFICULTY in blank. > 2" });
+  }
+  if (!ingredients) {
+    errors.push({ text: "Please dont leave INGREDIENTS in blank." });
+  }
+  if (!steps) {
+    errors.push({ text: "Please dont leave STEPS in blank." });
+  }
+  if (!time && time.length < 1) {
+    errors.push({ text: "Please dont leave TIME in blank. > 1" });
+  }
+  if (!preview && preview.length < 10) {
+    errors.push({ text: "Please dont leave PREVIEW in blank. > 10" });
+  }
+  if (!url) {
+    errors.push({ text: "Please dont leave URL in blank" });
+  }
+
   // console.log(ingredientsArr, stepsArr, imagesArr);
 
   const newRecipe = new Recipe({
@@ -27,13 +55,28 @@ recipectrl.createRecipe = async (req, res) => {
     receta_preview: preview,
     receta_images: imagesArr,
   });
-  await newRecipe.save((err) => {
-    if (!err) {
-      res.render("responses/allright");
-    } else {
-      res.render("responses/error");
-    }
-  });
+
+  if (errors.length > 0) {
+    res.render("admin/create", {
+      errors,
+      name,
+      type,
+      dif,
+      ingredientsArr,
+      stepsArr,
+      time,
+      preview,
+      imagesArr,
+    });
+  } else {
+    await newRecipe.save((err) => {
+      if (!err) {
+        res.render("responses/allright");
+      } else {
+        res.render("responses/error");
+      }
+    });
+  }
 };
 
 // *Get recipes
@@ -46,7 +89,7 @@ recipectrl.renderEditForm = async (req, res) => {
   const params = await Recipe.findById(req.params.id).lean();
   res.render("admin/edit", { params });
 };
-// put para actualizar en BD
+//  actualizar en BD
 recipectrl.updateRecipe = async (req, res) => {
   const {
     name,
@@ -59,7 +102,6 @@ recipectrl.updateRecipe = async (req, res) => {
     images,
   } = req.body;
 
-  
   await Recipe.findByIdAndUpdate(req.params.id, {
     receta_nombre: name,
     receta_tipo: tipo,
@@ -70,7 +112,8 @@ recipectrl.updateRecipe = async (req, res) => {
     receta_preview: preview,
     receta_images: images,
   });
-  res.redirect('/recipes/all');
+  req.flash("success_msg", "Recipe added succesfully");
+  res.redirect("/recipes/all");
 };
 
 // *delete en BD

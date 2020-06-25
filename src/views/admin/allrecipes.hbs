@@ -69,7 +69,7 @@
                                 <td>{{receta_images.[0]}}</td>
                                 <td><a href="/recipes/update/{{_id}}" class="lg"><li class="fas fa-edit"></li></a></td>
                                 <td>
-                                    <form action="/recipes/delete/{{_id}}?_method=DELETE" method="DELETE">
+                                    <form action="/recipes/delete/{{_id}}?_method=DELETE" method="POST">
                                     <input type="hidden" name="_method" value="DELETE">
                                     <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                     </form>

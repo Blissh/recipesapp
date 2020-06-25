@@ -1,5 +1,5 @@
 const User = require("../models/User");
-
+const passport = require('passport');
 const userctrl = {};
 
 // rendering
@@ -12,49 +12,44 @@ userctrl.renderSignin = (req, res) => {
   res.render("users/login");
 };
 
-userctrl.validateUser = () => {
-  // passport implementation
-};
+userctrl.validateUser = passport.authenticate('local', {
+  failureRedirect: '/signin',
+  successRedirect: '/recipes',
+  failureFlash: true
+});
 
 userctrl.newUser = async (req, res) => {
-  let errors = [];
-  const { name, email, password, confirm_password } = req.body;
+  const { name, email, password, password_confirm } = req.body;
   const rol = "user";
-  console.log(name, email, password, confirm_password);
-  if (password != confirm_password) {
-    errors.push({ text: "Passwords don't match." });
-  }
+  const errors = [];
+  const username = await User.findOne({ name: name });
+  const emailUser = await User.findOne({ email: email });
 
-  if (password.length < 6) {
-    errors.push({ text: "Passwords must be at least 6 characters." });
+  if (emailUser) {
+    errors.push({ text: "Email already in use" });
   }
-
+  if (username) {
+    errors.push({ text: "Username already in use" });
+  }
+  if (password != password_confirm) {
+    errors.push({ text: "Passwords do not match" });
+  }
+  // Save the user
   if (errors.length > 0) {
-    res.render("/signup", {
-      errors,
-      name,
-      email,
-      password,
-      confirm_password,
-    });
+    res.redirect("/signup", { errors });
   } else {
-    // email validation
-    const emailUser = await User.findOne({ email: email });
-    if (emailUser) {
-      //   req.flash("error_msg", "Email already in use.");
-      console.log("email in use");
-      res.redirect("/signup");
-    } else {
-      // Save the user
-      const newUser = new User({ name, email, password, rol });
-      console.log(newUser);
-      newUser.password = await newUser.encryptPass(password);
-      await newUser.save();
-      console.log("registered sucesfuly");
-      //   req.flash("success_msg", "You are registered.");
-      res.redirect("/singin");
-    }
+    const newUser = new User({ name, email, password, rol });
+    newUser.password = await newUser.encryptPass(password);
+    await newUser.save();
+    req.flash("success_msg", "User registered succesfully");
+    res.redirect("/signin");
   }
+};
+
+userctrl.logout = (req, res) => {
+  req.logout();
+  req.flash('success_msg', "You'r loged out");
+  res.redirect('/');
 };
 
 module.exports = userctrl;
