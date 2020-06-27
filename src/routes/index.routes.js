@@ -8,6 +8,8 @@ const {
   renderOneRecipe,
 } = require("../controllers/index.controller");
 
+const { isAuthenticated } = require('../middlewares/validators/auth');
+
 const {
   renderSignup,
   renderSignin,
@@ -15,9 +17,9 @@ const {
 
 router.get("/", renderIndex);
 
-router.get("/recipes", renderRecipes);
+router.get("/recipes", isAuthenticated, renderRecipes);
 router.get("/recipes/justone/:id", renderOneRecipe)
-router.get("/favorites", renderFavorites);
+router.get("/favorites", isAuthenticated ,renderFavorites);
 
 router.get("/signup", renderSignup);
 router.get("/signin", renderSignin);
